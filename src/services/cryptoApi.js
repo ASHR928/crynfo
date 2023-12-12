@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const rapidApiKey = import.meta.env.VITE_RAPID_API_ARTICLE_KEY;
+const rapidApiKey = process.env.REACT_APP_RAPID_API_ARTICLE_KEY;
 
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
@@ -15,7 +15,7 @@ export const cryptoApi = createApi({
   }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: (limit = 10) => `/coins?limit=${limit}`,
+      query: (limit = 10) => `?limit=${limit}`,
     }),
   }),
 });

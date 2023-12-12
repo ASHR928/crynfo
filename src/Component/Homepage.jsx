@@ -7,11 +7,13 @@ const { Title } = Typography;
 
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
-  console.log(data);
+  const globalStats = data?.data.stats;
+
+  if (isFetching) return "..Loading";
 
   return (
     <>
-      <Title level={2} className="heading">
+      <Title level={2} className="heading" value={globalStats.total}>
         Global Crypto Stats
       </Title>
       <Row gutter={[32, 32]}>
